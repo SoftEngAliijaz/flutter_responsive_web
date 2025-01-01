@@ -9,19 +9,21 @@ import 'package:flutter_responsive_web/widgets/dashboard_table.dart';
 import 'package:flutter_responsive_web/widgets/dashboard_text_field.dart';
 import 'package:flutter_responsive_web/widgets/home_screen_num_div.dart';
 
-class HomeViewSectionMobile extends StatefulWidget {
+class HomeScreenSectionMobileLayout extends StatefulWidget {
   final Key? divKey;
 
-  const HomeViewSectionMobile({
+  const HomeScreenSectionMobileLayout({
     super.key,
     required this.divKey,
   });
 
   @override
-  State<HomeViewSectionMobile> createState() => _HomeViewSectionMobileState();
+  State<HomeScreenSectionMobileLayout> createState() =>
+      _HomeScreeSectionnMobileLayoutState();
 }
 
-class _HomeViewSectionMobileState extends State<HomeViewSectionMobile> {
+class _HomeScreeSectionnMobileLayoutState
+    extends State<HomeScreenSectionMobileLayout> {
   @override
   Widget build(BuildContext context) {
     return Container(

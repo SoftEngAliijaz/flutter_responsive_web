@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_web/screens/main_sections/home_view_section.dart';
+import 'package:flutter_responsive_web/screens/views/main_sections/home_view_section.dart';
 import 'package:flutter_responsive_web/widgets/custom_app_bar.dart';
 import 'package:flutter_responsive_web/widgets/custom_drawer.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -43,25 +43,34 @@ class _HomeScreenState extends State<HomeScreen> {
           controller: scrollController,
           child: Column(
             children: [
+              /// Home Section
               HomeViewSection(divKey: sectionKeys[0]),
+
+              /// About Section
               Container(
                 key: sectionKeys[1],
                 height: 600,
-                color: Colors.blue,
+                color: Colors.green,
                 child: Center(child: Text('About Section')),
               ),
+
+              /// Contact Section
               Container(
                 key: sectionKeys[2],
                 height: 600,
                 color: Colors.green,
                 child: Center(child: Text('Contact Section')),
               ),
+
+              /// Privacy Section
               Container(
                 key: sectionKeys[3],
                 height: 600,
                 color: Colors.purple,
                 child: Center(child: Text('Privacy Section')),
               ),
+
+              /// Terms Section
               Container(
                 key: sectionKeys[4],
                 height: 600,

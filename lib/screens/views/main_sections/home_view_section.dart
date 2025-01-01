@@ -1,8 +1,9 @@
 import 'dart:ui';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_web/constants/constants.dart';
-import 'package:flutter_responsive_web/responsive_views/home_view_section.dart';
+import 'package:flutter_responsive_web/screens/views/responsive_views/home_view_section.dart';
 import 'package:flutter_responsive_web/widgets/custom_animated_text_kit.dart';
 import 'package:flutter_responsive_web/widgets/dashboard_action_button.dart';
 import 'package:flutter_responsive_web/widgets/dashboard_table.dart';
@@ -147,6 +148,6 @@ class _HomeViewSectionState extends State<HomeViewSection> {
               ),
             ),
           )
-        : HomeViewSectionMobile(divKey: widget.divKey);
+        : HomeScreenSectionMobileLayout(divKey: widget.divKey);
   }
 }
