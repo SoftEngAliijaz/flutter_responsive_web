@@ -29,6 +29,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
     final isResponsive = ResponsiveBreakpoints.of(context).largerThan(TABLET);
 
     return AppBar(
+      iconTheme: IconThemeData(color: Colors.white),
       leading: isResponsive
           ? Padding(
               padding: const EdgeInsets.all(10.0),
