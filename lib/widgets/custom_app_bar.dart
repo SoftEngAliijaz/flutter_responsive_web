@@ -73,6 +73,7 @@ class _CustomAppBarState extends State<CustomAppBar> {
                         width: 100.0,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(10.0),
+                          // ignore: deprecated_member_use
                           color: Colors.black.withOpacity(0.1),
                         ),
                         child: Column(

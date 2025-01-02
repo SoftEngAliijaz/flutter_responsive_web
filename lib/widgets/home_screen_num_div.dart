@@ -21,6 +21,7 @@ class HomeScreenNumberDiv extends StatelessWidget {
           borderRadius: BorderRadius.circular(10.0),
           boxShadow: [
             BoxShadow(
+              // ignore: deprecated_member_use
               color: Colors.black.withOpacity(0.5),
               blurRadius: 10.0,
               spreadRadius: 2.0,
