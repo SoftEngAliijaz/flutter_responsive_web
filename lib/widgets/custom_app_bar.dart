@@ -46,8 +46,8 @@ class _CustomAppBarState extends State<CustomAppBar> {
             ),
       actions: isResponsive
           ? [
-              ...navBarItems.map((v) {
-                int index = navBarItems.indexOf(v);
+              ...AppConstants.navBarItems.map((v) {
+                int index = AppConstants.navBarItems.indexOf(v);
                 return MouseRegion(
                   onEnter: (_) {
                     setState(() {

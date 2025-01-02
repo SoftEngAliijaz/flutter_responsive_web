@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_web/constants/constants.dart';
-import 'package:flutter_responsive_web/screens/views/responsive_views/about_view_section.dart';
+import 'package:flutter_responsive_web/widgets/about_screen_num_div.dart';
 import 'package:flutter_responsive_web/widgets/custom_animated_text_kit.dart';
 import 'package:flutter_responsive_web/widgets/dashboard_action_button.dart';
 import 'package:flutter_responsive_web/widgets/home_screen_num_div.dart';
@@ -36,7 +36,6 @@ class _AboutViewSectionState extends State<AboutViewSection> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  // Header Section
                   Row(
                     children: [
                       Expanded(
@@ -66,7 +65,6 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                     ],
                   ),
                   SizedBox(height: 20.0),
-                  // Mission and Vision Section
                   Text(
                     'Our Mission & Vision',
                     style: TextStyle(
@@ -84,7 +82,6 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                     style: TextStyle(fontSize: 16.0, color: Colors.black54),
                   ),
                   SizedBox(height: 20.0),
-                  // Key Metrics Section
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
                     child: Row(
@@ -130,6 +127,65 @@ class _AboutViewSectionState extends State<AboutViewSection> {
               ),
             ),
           )
-        : AboutScreenSectionMobileLayout(divKey: widget.divKey);
+
+        ///Mobile View
+        : Container(
+            key: widget.divKey,
+            padding: const EdgeInsets.all(15.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                CircleAvatar(
+                  backgroundImage: CachedNetworkImageProvider(
+                      AppConstants.homeScreenBgImage),
+                  radius: 40.0,
+                ),
+                SizedBox(height: 10.0),
+                Text(
+                  'About TechSolNexa',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+                SizedBox(height: 5.0),
+                Text(
+                  'Innovating the Future',
+                  style: TextStyle(fontSize: 16.0, color: Colors.black54),
+                ),
+                SizedBox(height: 15.0),
+                Text(
+                  'At TechSolNexa, we are committed to delivering cutting-edge technology solutions '
+                  'that empower businesses and transform lives. Our vision is to lead the industry '
+                  'with innovation, integrity, and customer-centric services.',
+                  style: TextStyle(
+                    fontSize: 14.0,
+                    color: Colors.black87,
+                  ),
+                ),
+                SizedBox(height: 15.0),
+                GridView.builder(
+                    physics: ScrollPhysics(),
+                    shrinkWrap: true,
+                    itemCount: AppConstants.aboutScreenNumberDivData.length,
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: 2),
+                    itemBuilder: (context, index) {
+                      final value =
+                          AppConstants.aboutScreenNumberDivData[index];
+                      return AboutScreenNumDiv(
+                        title: value['title']!,
+                        subtitle: value['subtitle']!,
+                        imageUrl: value['imageUrl']!,
+                      );
+                    }),
+                SizedBox(height: 15.0),
+                DashboardActionButton(
+                  title: 'Contact Us',
+                  onPressed: () {},
+                ),
+              ],
+            ),
+          );
   }
 }
