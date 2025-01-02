@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_responsive_web/constants/constants.dart';
 import 'package:flutter_responsive_web/widgets/about_screen_num_div.dart';
 import 'package:flutter_responsive_web/widgets/custom_animated_text_kit.dart';
-import 'package:flutter_responsive_web/widgets/dashboard_action_button.dart';
+import 'package:flutter_responsive_web/widgets/custom_button.dart';
 import 'package:flutter_responsive_web/widgets/home_screen_num_div.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -57,7 +57,7 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                       SizedBox(width: 10.0),
                       SizedBox(
                         height: 48.0,
-                        child: DashboardActionButton(
+                        child: CustomButton(
                           title: 'Contact Us',
                           onPressed: () {},
                         ),
@@ -119,7 +119,7 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                   CustomAnimatedTextKit(),
                   SizedBox(height: 20.0),
                   // Call to Action
-                  DashboardActionButton(
+                  CustomButton(
                     title: 'Learn More About Us',
                     onPressed: () {},
                   ),
@@ -180,7 +180,7 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                       );
                     }),
                 SizedBox(height: 15.0),
-                DashboardActionButton(
+                CustomButton(
                   title: 'Contact Us',
                   onPressed: () {},
                 ),

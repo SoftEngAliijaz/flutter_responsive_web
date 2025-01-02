@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DashboardTextField extends StatelessWidget {
+class CustomTextField extends StatelessWidget {
   final String hintText;
   final IconData prefixIcon;
 
-  const DashboardTextField({
+  const CustomTextField({
     super.key,
     required this.hintText,
     required this.prefixIcon,

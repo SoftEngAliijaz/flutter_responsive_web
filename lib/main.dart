@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_web/screens/main/home_screen.dart';
+import 'package:flutter_responsive_web/screens/auth/login_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -33,7 +33,7 @@ class MyApp extends StatelessWidget {
           const Breakpoint(start: 1921, end: double.infinity, name: '4K'),
         ],
       ),
-      home: HomeScreen(),
+      home: LogInScreen(),
     );
   }
 }

@@ -4,9 +4,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_responsive_web/constants/constants.dart';
 import 'package:flutter_responsive_web/widgets/custom_animated_text_kit.dart';
-import 'package:flutter_responsive_web/widgets/dashboard_action_button.dart';
+import 'package:flutter_responsive_web/widgets/custom_button.dart';
 import 'package:flutter_responsive_web/widgets/dashboard_table.dart';
-import 'package:flutter_responsive_web/widgets/dashboard_text_field.dart';
+import 'package:flutter_responsive_web/widgets/custom_text_field.dart';
 import 'package:flutter_responsive_web/widgets/home_screen_num_div.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
@@ -54,14 +54,14 @@ class _HomeViewSectionState extends State<HomeViewSection> {
                         ),
                         SizedBox(width: 10.0),
                         Expanded(
-                            child: DashboardTextField(
+                            child: CustomTextField(
                           hintText: 'Search',
                           prefixIcon: Icons.search_outlined,
                         )),
                         SizedBox(width: 10.0),
                         SizedBox(
                           height: 48.0,
-                          child: DashboardActionButton(
+                          child: CustomButton(
                             title: '+ Add Applicant',
                             onPressed: () {},
                           ),
@@ -134,7 +134,7 @@ class _HomeViewSectionState extends State<HomeViewSection> {
                           SizedBox(height: 10.0),
                           CustomAnimatedTextKit(),
                           SizedBox(height: 15.0),
-                          DashboardActionButton(
+                          CustomButton(
                             title: 'Explore More',
                             onPressed: () {},
                           ),
@@ -174,7 +174,7 @@ class _HomeViewSectionState extends State<HomeViewSection> {
                       subtitle: Text('Please Subscribe to Channel'),
                     ),
                     SizedBox(height: 10.0),
-                    DashboardTextField(
+                    CustomTextField(
                         hintText: 'Search', prefixIcon: Icons.search_outlined),
                     SizedBox(height: 15.0),
                     SingleChildScrollView(
@@ -241,7 +241,7 @@ class _HomeViewSectionState extends State<HomeViewSection> {
                           SizedBox(height: 10.0),
                           CustomAnimatedTextKit(),
                           SizedBox(height: 15.0),
-                          DashboardActionButton(
+                          CustomButton(
                             title: 'Explore More',
                             onPressed: () {},
                           ),

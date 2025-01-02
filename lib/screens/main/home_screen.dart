@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_web/screens/main_sections/about_view_section.dart';
-import 'package:flutter_responsive_web/screens/main_sections/home_view_section.dart';
+import 'package:flutter_responsive_web/screens/view_sections/about_view_section.dart';
+import 'package:flutter_responsive_web/screens/view_sections/home_view_section.dart';
 import 'package:flutter_responsive_web/widgets/custom_app_bar.dart';
 import 'package:flutter_responsive_web/widgets/custom_drawer.dart';
 import 'package:responsive_framework/responsive_framework.dart';

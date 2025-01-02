@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-class DashboardActionButton extends StatelessWidget {
+class CustomButton extends StatelessWidget {
   final String title;
   final void Function()? onPressed;
 
-  const DashboardActionButton({
+  const CustomButton({
     super.key,
     required this.title,
     this.onPressed,
