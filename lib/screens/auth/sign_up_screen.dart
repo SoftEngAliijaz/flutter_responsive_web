@@ -93,16 +93,19 @@ class SignUpScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Email',
               prefixIcon: Icons.mail_outline,
             ),
             const SizedBox(height: 20),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Password',
               prefixIcon: Icons.lock_outline,
             ),
             const SizedBox(height: 20),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Confirm Password',
               prefixIcon: Icons.lock_outline,
             ),
@@ -172,16 +175,19 @@ class SignUpScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Email',
               prefixIcon: Icons.mail_outline,
             ),
             const SizedBox(height: 20),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Password',
               prefixIcon: Icons.lock_outline,
             ),
             const SizedBox(height: 20),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Confirm Password',
               prefixIcon: Icons.lock_outline,
             ),

@@ -74,11 +74,13 @@ class LogInScreen extends StatelessWidget {
             ),
             const SizedBox(height: 30),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Email',
               prefixIcon: Icons.mail_outline,
             ),
             const SizedBox(height: 20),
             const CustomTextField(
+              maxLines: 1,
               hintText: 'Password',
               prefixIcon: Icons.lock_outline,
             ),
@@ -178,11 +180,13 @@ class LogInScreen extends StatelessWidget {
           ),
           const SizedBox(height: 30),
           const CustomTextField(
+            maxLines: 1,
             hintText: 'Email',
             prefixIcon: Icons.mail_outline,
           ),
           const SizedBox(height: 20),
           const CustomTextField(
+            maxLines: 1,
             hintText: 'Password',
             prefixIcon: Icons.lock_outline,
           ),

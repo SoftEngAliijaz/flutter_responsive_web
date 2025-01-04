@@ -51,6 +51,7 @@ class _HomeViewSectionState extends State<HomeViewSection> {
                     child: CustomTextField(
                       hintText: 'Search',
                       prefixIcon: Icons.search_outlined,
+                      maxLines: 1,
                     ),
                   ),
                   const SizedBox(width: 10.0),
@@ -69,6 +70,7 @@ class _HomeViewSectionState extends State<HomeViewSection> {
               CustomTextField(
                 hintText: 'Search',
                 prefixIcon: Icons.search_outlined,
+                maxLines: 1,
               ),
             ],
             const SizedBox(height: 20.0),
