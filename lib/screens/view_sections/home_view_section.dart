@@ -1,14 +1,10 @@
-import 'dart:ui';
-
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_responsive_web/constants/constants.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 import 'package:flutter_responsive_web/widgets/custom_animated_text_kit.dart';
 import 'package:flutter_responsive_web/widgets/custom_button.dart';
 import 'package:flutter_responsive_web/widgets/dashboard_table.dart';
 import 'package:flutter_responsive_web/widgets/custom_text_field.dart';
 import 'package:flutter_responsive_web/widgets/home_screen_num_div.dart';
-import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeViewSection extends StatefulWidget {
   final Key? divKey;
@@ -22,237 +18,114 @@ class HomeViewSection extends StatefulWidget {
 class _HomeViewSectionState extends State<HomeViewSection> {
   @override
   Widget build(BuildContext context) {
-    final responsive = ResponsiveBreakpoints.of(context).largerThan(TABLET);
-    return responsive
-        ? Container(
-            key: widget.divKey!,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image:
-                    CachedNetworkImageProvider(AppConstants.homeScreenBgImage),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: ListTile(
-                            onTap: () {},
-                            leading: CircleAvatar(
-                                backgroundImage: CachedNetworkImageProvider(
-                                    AppConstants.homeScreenMainTileImage)),
-                            title: Text('Welcome to TechSolNexa'),
-                            subtitle: Text('Please Subscribe to Channel'),
-                          ),
-                        ),
-                        SizedBox(width: 10.0),
-                        Expanded(
-                            child: CustomTextField(
-                          hintText: 'Search',
-                          prefixIcon: Icons.search_outlined,
-                        )),
-                        SizedBox(width: 10.0),
-                        SizedBox(
-                          height: 48.0,
-                          child: CustomButton(
-                            title: '+ Add Applicant',
-                            onPressed: () {},
-                          ),
-                        ),
-                        SizedBox(width: 10.0),
-                      ],
-                    ),
-                    SizedBox(height: 15.0),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          HomeScreenNumberDiv(
-                            title: 'Applicants',
-                            subtitle: '1000',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Projects',
-                            subtitle: '42',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Tasks Completed',
-                            subtitle: '1250',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Revenue',
-                            subtitle: '\$75K',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Feedback',
-                            subtitle: '320',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Bugs Fixed',
-                            subtitle: '450',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'New Signups',
-                            subtitle: '300',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Pending Requests',
-                            subtitle: '25',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Messages',
-                            subtitle: '120',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Notifications',
-                            subtitle: '15',
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'What Services we provide?',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 10.0),
-                          CustomAnimatedTextKit(),
-                          SizedBox(height: 15.0),
-                          CustomButton(
-                            title: 'Explore More',
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                    DashboardTable(),
-                  ],
-                ),
-              ),
-            ),
-          )
+    final isDesktop = ResponsiveBreakpoints.of(context).largerThan(TABLET);
 
-        ///Mobile View
-        : Container(
-            key: widget.divKey,
-            decoration: BoxDecoration(
-              image: DecorationImage(
-                image:
-                    CachedNetworkImageProvider(AppConstants.homeScreenBgImage),
-                fit: BoxFit.cover,
-              ),
-            ),
-            child: BackdropFilter(
-              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-              child: Padding(
-                padding: const EdgeInsets.all(15.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    ListTile(
-                      onTap: () {},
-                      leading: CircleAvatar(
-                          backgroundImage: CachedNetworkImageProvider(
-                              AppConstants.homeScreenMainTileImage)),
-                      title: Text('Welcome to TechSolNexa'),
-                      subtitle: Text('Please Subscribe to Channel'),
+    return Container(
+      key: widget.divKey,
+      color: Colors.grey.shade100,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 15.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            // Header Row
+            Row(
+              children: [
+                Expanded(
+                  child: ListTile(
+                    onTap: () {},
+                    leading: CircleAvatar(
+                      backgroundColor: Colors.blue.shade100,
+                      child: Icon(Icons.person, color: Colors.blue.shade700),
                     ),
-                    SizedBox(height: 10.0),
-                    CustomTextField(
-                        hintText: 'Search', prefixIcon: Icons.search_outlined),
-                    SizedBox(height: 15.0),
-                    SingleChildScrollView(
-                      scrollDirection: Axis.horizontal,
-                      child: Row(
-                        children: [
-                          HomeScreenNumberDiv(
-                            title: 'Applicants',
-                            subtitle: '1000',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Projects',
-                            subtitle: '42',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Tasks Completed',
-                            subtitle: '1250',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Revenue',
-                            subtitle: '\$75K',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Feedback',
-                            subtitle: '320',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Bugs Fixed',
-                            subtitle: '450',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'New Signups',
-                            subtitle: '300',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Pending Requests',
-                            subtitle: '25',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Messages',
-                            subtitle: '120',
-                          ),
-                          HomeScreenNumberDiv(
-                            title: 'Notifications',
-                            subtitle: '15',
-                          ),
-                        ],
-                      ),
+                    title: Text(
+                      'Welcome to TechSolNexa',
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
-                    Padding(
-                      padding: const EdgeInsets.all(15.0),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        children: [
-                          Text(
-                            'What Services we provide?',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 22.0,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          SizedBox(height: 10.0),
-                          CustomAnimatedTextKit(),
-                          SizedBox(height: 15.0),
-                          CustomButton(
-                            title: 'Explore More',
-                            onPressed: () {},
-                          ),
-                        ],
-                      ),
-                    ),
-                    DashboardTable(),
-                  ],
+                    subtitle: Text('Please Subscribe to Channel'),
+                  ),
                 ),
+                if (isDesktop) ...[
+                  const SizedBox(width: 10.0),
+                  Expanded(
+                    child: CustomTextField(
+                      hintText: 'Search',
+                      prefixIcon: Icons.search_outlined,
+                    ),
+                  ),
+                  const SizedBox(width: 10.0),
+                  SizedBox(
+                    height: 48.0,
+                    child: CustomButton(
+                      title: '+ Add Applicant',
+                      onPressed: () {},
+                    ),
+                  ),
+                ],
+              ],
+            ),
+            if (!isDesktop) ...[
+              const SizedBox(height: 10.0),
+              CustomTextField(
+                hintText: 'Search',
+                prefixIcon: Icons.search_outlined,
+              ),
+            ],
+            const SizedBox(height: 20.0),
+
+            // Metrics Section
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: const [
+                  HomeScreenNumberDiv(title: 'Applicants', subtitle: '1000'),
+                  HomeScreenNumberDiv(title: 'Projects', subtitle: '42'),
+                  HomeScreenNumberDiv(
+                      title: 'Tasks Completed', subtitle: '1250'),
+                  HomeScreenNumberDiv(title: 'Revenue', subtitle: '\$75K'),
+                  HomeScreenNumberDiv(title: 'Feedback', subtitle: '320'),
+                  HomeScreenNumberDiv(title: 'Bugs Fixed', subtitle: '450'),
+                  HomeScreenNumberDiv(title: 'New Signups', subtitle: '300'),
+                  HomeScreenNumberDiv(
+                      title: 'Pending Requests', subtitle: '25'),
+                  HomeScreenNumberDiv(title: 'Messages', subtitle: '120'),
+                  HomeScreenNumberDiv(title: 'Notifications', subtitle: '15'),
+                ],
               ),
             ),
-          );
+            const SizedBox(height: 20.0),
+
+            // Services Section
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 15.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const Text(
+                    'What Services we provide?',
+                    style: TextStyle(
+                      fontSize: 22.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                  const SizedBox(height: 10.0),
+                  const CustomAnimatedTextKit(isHomePage: true),
+                  const SizedBox(height: 15.0),
+                  CustomButton(
+                    title: 'Explore More',
+                    onPressed: () {},
+                  ),
+                ],
+              ),
+            ),
+
+            // Table Section
+            const SizedBox(height: 20.0),
+            const DashboardTable(),
+          ],
+        ),
+      ),
+    );
   }
 }

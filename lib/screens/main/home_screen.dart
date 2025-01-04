@@ -54,7 +54,7 @@ class _HomeScreenState extends State<HomeScreen> {
               Container(
                 key: sectionKeys[2],
                 height: 600,
-                color: Colors.green,
+                color: Colors.purple,
                 child: Center(child: Text('Contact Section')),
               ),
 

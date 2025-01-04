@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeScreenNumberDiv extends StatelessWidget {
   final String title;
@@ -11,11 +12,12 @@ class HomeScreenNumberDiv extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isReponsive = ResponsiveBreakpoints.of(context).largerThan(TABLET);
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 10.0, vertical: 10.0),
       child: Container(
-        height: 200,
-        width: 200,
+        height: isReponsive ? 200.0 : 170.0,
+        width: isReponsive ? 200.0 : 170.0,
         decoration: BoxDecoration(
           color: Colors.blue,
           borderRadius: BorderRadius.circular(10.0),
