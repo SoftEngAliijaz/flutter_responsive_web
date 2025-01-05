@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_responsive_web/screens/view_sections/about_view_section.dart';
 import 'package:flutter_responsive_web/screens/view_sections/contact_view_section.dart';
 import 'package:flutter_responsive_web/screens/view_sections/home_view_section.dart';
+import 'package:flutter_responsive_web/screens/view_sections/privacy_view_section.dart';
+import 'package:flutter_responsive_web/screens/view_sections/terms_view_section.dart';
 import 'package:flutter_responsive_web/widgets/custom_app_bar.dart';
 import 'package:flutter_responsive_web/widgets/custom_drawer.dart';
 import 'package:responsive_framework/responsive_framework.dart';
@@ -55,20 +57,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ContactViewSection(divKey: sectionKeys[2]),
 
               /// Privacy Section
-              Container(
-                key: sectionKeys[3],
-                height: 600,
-                color: Colors.purple,
-                child: Center(child: Text('Privacy Section')),
-              ),
+              PrivacyViewSection(divKey: sectionKeys[3]),
 
               /// Terms Section
-              Container(
-                key: sectionKeys[4],
-                height: 600,
-                color: Colors.orange,
-                child: Center(child: Text('Terms Section')),
-              ),
+              TermsViewSection(divKey: sectionKeys[4]),
             ],
           ),
         ),

@@ -154,73 +154,75 @@ class SignUpScreen extends StatelessWidget {
           end: Alignment.bottomRight,
         ),
       ),
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            const CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.white,
-              child: Icon(Icons.person_outline,
-                  size: 50, color: Color(0xFF5B86E5)),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
+      child: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const CircleAvatar(
+                radius: 50,
+                backgroundColor: Colors.white,
+                child: Icon(Icons.person_outline,
+                    size: 50, color: Color(0xFF5B86E5)),
               ),
-            ),
-            const SizedBox(height: 20),
-            const CustomTextField(
-              maxLines: 1,
-              hintText: 'Email',
-              prefixIcon: Icons.mail_outline,
-            ),
-            const SizedBox(height: 20),
-            const CustomTextField(
-              maxLines: 1,
-              hintText: 'Password',
-              prefixIcon: Icons.lock_outline,
-            ),
-            const SizedBox(height: 20),
-            const CustomTextField(
-              maxLines: 1,
-              hintText: 'Confirm Password',
-              prefixIcon: Icons.lock_outline,
-            ),
-            const SizedBox(height: 30),
-            SizedBox(
-              height: 48.0,
-              width: double.infinity,
-              child: CustomButton(
-                title: 'Sign Up',
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomeScreen()));
-                },
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Already have an account?',
-                  style: TextStyle(color: Colors.white),
+              const SizedBox(height: 20),
+              const Text(
+                'Sign Up',
+                style: TextStyle(
+                  fontSize: 28,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white,
                 ),
-                TextButton(
+              ),
+              const SizedBox(height: 20),
+              const CustomTextField(
+                maxLines: 1,
+                hintText: 'Email',
+                prefixIcon: Icons.mail_outline,
+              ),
+              const SizedBox(height: 20),
+              const CustomTextField(
+                maxLines: 1,
+                hintText: 'Password',
+                prefixIcon: Icons.lock_outline,
+              ),
+              const SizedBox(height: 20),
+              const CustomTextField(
+                maxLines: 1,
+                hintText: 'Confirm Password',
+                prefixIcon: Icons.lock_outline,
+              ),
+              const SizedBox(height: 30),
+              SizedBox(
+                height: 48.0,
+                width: double.infinity,
+                child: CustomButton(
+                  title: 'Sign Up',
                   onPressed: () {
-                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (_) => HomeScreen()));
                   },
-                  child: const Text('Login',
-                      style: TextStyle(color: Colors.white)),
                 ),
-              ],
-            ),
-          ],
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text(
+                    'Already have an account?',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pop(context);
+                    },
+                    child: const Text('Login',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
