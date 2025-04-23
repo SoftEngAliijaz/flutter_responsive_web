@@ -17,13 +17,13 @@ class _PrivacyViewSectionState extends State<PrivacyViewSection> {
       padding: const EdgeInsets.symmetric(vertical: 8.0),
       child: Row(
         children: [
-          Icon(icon, color: Colors.white, size: 24),
+          Icon(icon, color: Colors.blueGrey, size: 24),
           SizedBox(width: 10),
           Expanded(
             child: Text(
               title,
               style: TextStyle(
-                color: Colors.white,
+                color: Colors.black87,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500,
               ),
@@ -43,34 +43,21 @@ class _PrivacyViewSectionState extends State<PrivacyViewSection> {
       padding: responsive
           ? const EdgeInsets.symmetric(vertical: 40.0, horizontal: 20.0)
           : const EdgeInsets.all(15.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Colors.purple.shade200, Colors.purple.shade800],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black26,
-            blurRadius: 10.0,
-            offset: Offset(0, 4),
-          ),
-        ],
-      ),
+      color: Colors.white,
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           // Icon and Title Section
           Row(
             children: [
-              Icon(Icons.privacy_tip, color: Colors.white, size: 30.0),
+              Icon(Icons.privacy_tip, color: Colors.blueGrey, size: 30.0),
               SizedBox(width: 10),
               Text(
                 'Privacy Policy',
                 style: TextStyle(
                   fontSize: responsive ? 28.0 : 20.0,
                   fontWeight: FontWeight.bold,
-                  color: Colors.white,
+                  color: Colors.black87,
                 ),
               ),
             ],
@@ -84,7 +71,7 @@ class _PrivacyViewSectionState extends State<PrivacyViewSection> {
             'Your trust is important to us.',
             style: TextStyle(
               fontSize: responsive ? 18.0 : 16.0,
-              color: Colors.white70,
+              color: Colors.black54,
               height: 1.5,
             ),
           ),
@@ -106,7 +93,6 @@ class _PrivacyViewSectionState extends State<PrivacyViewSection> {
             child: CustomButton(
               title: 'Learn More',
               onPressed: () {
-                // Add action here, e.g., navigating to a detailed privacy policy page
                 showDialog(
                   context: context,
                   builder: (context) {

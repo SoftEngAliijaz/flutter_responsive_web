@@ -44,10 +44,14 @@ class _TermsViewSectionState extends State<TermsViewSection> {
           ? const EdgeInsets.symmetric(vertical: 40.0, horizontal: 20.0)
           : const EdgeInsets.all(15.0),
       decoration: BoxDecoration(
+        color: Colors.white,
         gradient: LinearGradient(
-          colors: [Colors.orange.shade200, Colors.orange.shade800],
-          begin: Alignment.topRight,
-          end: Alignment.bottomLeft,
+          colors: [
+            Colors.blueAccent.shade100,
+            Colors.blue.shade600,
+          ],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
         ),
         boxShadow: [
           BoxShadow(
@@ -84,7 +88,7 @@ class _TermsViewSectionState extends State<TermsViewSection> {
             'Please read them carefully to understand your rights and obligations.',
             style: TextStyle(
               fontSize: responsive ? 18.0 : 16.0,
-              color: Colors.white70,
+              color: Colors.white,
               height: 1.5,
             ),
           ),
