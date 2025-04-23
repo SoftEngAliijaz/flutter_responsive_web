@@ -4,12 +4,113 @@ import 'package:flutter_responsive_web/widgets/custom_text_field.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class ContactViewSection extends StatelessWidget {
-  final Key? divKey;
-
   const ContactViewSection({
     super.key,
     required this.divKey,
   });
+
+  final Key? divKey;
+
+  Widget _buildContactForm(bool isResponsive) {
+    return Container(
+      width: isResponsive ? 500 : double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          CustomTextField(
+            hintText: 'Your Name',
+            prefixIcon: Icons.person_outline,
+          ),
+          const SizedBox(height: 20),
+          CustomTextField(
+            hintText: 'Your Email',
+            prefixIcon: Icons.email_outlined,
+          ),
+          const SizedBox(height: 20),
+          CustomTextField(
+            hintText: 'Your Message',
+            prefixIcon: Icons.message_outlined,
+          ),
+          const SizedBox(height: 20),
+          SizedBox(
+            width: double.infinity,
+            child: CustomButton(
+              title: 'Send Message',
+              onPressed: () {
+                // Placeholder action - implement form submission logic
+              },
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildContactInfo(bool isResponsive) {
+    return Container(
+      width: isResponsive ? 300 : double.infinity,
+      padding: const EdgeInsets.all(20),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(12),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 10,
+            offset: const Offset(0, 4),
+          ),
+        ],
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            'You can also reach us at:',
+            style:
+                TextStyle(fontSize: isResponsive ? 20 : 18, color: Colors.teal),
+          ),
+          const SizedBox(height: 10),
+          GestureDetector(
+            onTap: () {
+              // Placeholder for email action
+            },
+            child: Text(
+              'Email: contact@example.com',
+              style: TextStyle(
+                  fontSize: isResponsive ? 16 : 14,
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline),
+            ),
+          ),
+          const SizedBox(height: 10),
+          GestureDetector(
+            onTap: () {
+              // Placeholder for phone action
+            },
+            child: Text(
+              'Phone: +123 456 7890',
+              style: TextStyle(
+                  fontSize: isResponsive ? 16 : 14,
+                  color: Colors.blue,
+                  decoration: TextDecoration.underline),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -66,81 +167,6 @@ class ContactViewSection extends StatelessWidget {
                     _buildContactInfo(isResponsive),
                   ],
                 ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildContactForm(bool isResponsive) {
-    return Container(
-      width: isResponsive ? 500 : double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          CustomTextField(
-            hintText: 'Your Name',
-            prefixIcon: Icons.person_outline,
-          ),
-          const SizedBox(height: 20),
-          CustomTextField(
-            hintText: 'Your Email',
-            prefixIcon: Icons.email_outlined,
-          ),
-          const SizedBox(height: 20),
-          CustomTextField(
-            hintText: 'Your Message',
-            prefixIcon: Icons.message_outlined,
-          ),
-          const SizedBox(height: 20),
-          SizedBox(
-              width: double.infinity,
-              child: CustomButton(title: 'Send Message', onPressed: () {})),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildContactInfo(bool isResponsive) {
-    return Container(
-      width: isResponsive ? 300 : double.infinity,
-      padding: const EdgeInsets.all(20),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(12),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 4),
-          ),
-        ],
-      ),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            'You can also reach us at:',
-            style:
-                TextStyle(fontSize: isResponsive ? 20 : 18, color: Colors.teal),
-          ),
-          const SizedBox(height: 10),
-          Text(
-            'Email: contact@example.com | Phone: +123 456 7890',
-            style: TextStyle(
-                fontSize: isResponsive ? 16 : 14, color: Colors.black),
-          ),
         ],
       ),
     );

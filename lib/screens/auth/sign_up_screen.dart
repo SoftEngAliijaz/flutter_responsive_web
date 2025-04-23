@@ -7,16 +7,144 @@ import 'package:responsive_framework/responsive_framework.dart';
 class SignUpScreen extends StatelessWidget {
   const SignUpScreen({super.key});
 
+  Widget _buildSignUpForm(BuildContext context) {
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      crossAxisAlignment: CrossAxisAlignment.stretch,
+      children: [
+        const TextFieldSectionHeader(title: 'Sign Up', color: Colors.black87),
+        const SizedBox(height: 20),
+        const CustomTextField(
+          maxLines: 1,
+          hintText: 'Email',
+          prefixIcon: Icons.mail_outline,
+        ),
+        const SizedBox(height: 20),
+        const CustomTextField(
+          maxLines: 1,
+          hintText: 'Password',
+          prefixIcon: Icons.lock_outline,
+        ),
+        const SizedBox(height: 20),
+        const CustomTextField(
+          maxLines: 1,
+          hintText: 'Confirm Password',
+          prefixIcon: Icons.lock_outline,
+        ),
+        const SizedBox(height: 30),
+        SizedBox(
+          height: 48,
+          child: CustomButton(
+            title: 'Sign Up',
+            onPressed: () {
+              Navigator.pushReplacement(
+                context,
+                MaterialPageRoute(builder: (_) => const HomeScreen()),
+              );
+            },
+          ),
+        ),
+        const SizedBox(height: 20),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text(
+              'Already have an account?',
+              style: TextStyle(color: Colors.black54),
+            ),
+            TextButton(
+              onPressed: () => Navigator.pop(context),
+              child: const Text(
+                'Login',
+                style: TextStyle(color: Color(0xFF5B86E5)),
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+
+  Widget _buildLeftPanel(Size size) {
+    return Expanded(
+      child: Container(
+        height: size.height,
+        decoration: BoxDecoration(
+          gradient: const LinearGradient(
+            colors: [Color(0xFF5B86E5), Color(0xFF36D1DC)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+        padding: const EdgeInsets.all(40),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            CircleAvatar(
+              radius: 50,
+              backgroundColor: Colors.white,
+              child: Icon(Icons.person_outline,
+                  size: 50, color: Color(0xFF5B86E5)),
+            ),
+            SizedBox(height: 20),
+            Text(
+              'Create Account',
+              style: TextStyle(
+                fontSize: 32,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Join us and explore exciting features.',
+              style: TextStyle(fontSize: 18, color: Colors.white70),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildRightPanel(BuildContext context) {
+    return Expanded(
+      child: Padding(
+        padding: const EdgeInsets.all(40),
+        child: Center(child: _buildSignUpForm(context)),
+      ),
+    );
+  }
+
+  Widget _buildMobileLayout(BuildContext context) {
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 20),
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          colors: [Color(0xFF5B86E5), Color(0xFF36D1DC)],
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+      ),
+      child: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.symmetric(vertical: 40),
+          child: _buildSignUpForm(context),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
-    final isResponsive = ResponsiveBreakpoints.of(context).largerThan(TABLET);
+    final isDesktop = ResponsiveBreakpoints.of(context).largerThan(TABLET);
 
     return Scaffold(
       body: SizedBox(
         height: size.height,
         width: size.width,
-        child: isResponsive
+        child: isDesktop
             ? Row(
                 children: [
                   _buildLeftPanel(size),
@@ -27,204 +155,28 @@ class SignUpScreen extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildLeftPanel(Size size) {
-    return Expanded(
-      child: Container(
-        height: size.height,
-        width: size.width,
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Color(0xFF5B86E5), Color(0xFF36D1DC)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-        ),
-        padding: const EdgeInsets.all(40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const CircleAvatar(
-              radius: 50,
-              backgroundColor: Colors.white,
-              child: Icon(Icons.person_outline,
-                  size: 50, color: Color(0xFF5B86E5)),
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'Create Account',
-              style: TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-            const SizedBox(height: 10),
-            const Text(
-              'Join us and explore exciting features.',
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.white70,
-              ),
-            ),
-            const SizedBox(height: 30),
-          ],
-        ),
-      ),
-    );
-  }
+class TextFieldSectionHeader extends StatelessWidget {
+  const TextFieldSectionHeader({
+    super.key,
+    required this.title,
+    this.color = Colors.black87,
+  });
 
-  Widget _buildRightPanel(BuildContext context) {
-    return Expanded(
-      child: Container(
-        padding: const EdgeInsets.all(40.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            const Text(
-              'Sign Up',
-              style: TextStyle(
-                fontSize: 28,
-                fontWeight: FontWeight.bold,
-                color: Colors.black87,
-              ),
-            ),
-            const SizedBox(height: 20),
-            const CustomTextField(
-              maxLines: 1,
-              hintText: 'Email',
-              prefixIcon: Icons.mail_outline,
-            ),
-            const SizedBox(height: 20),
-            const CustomTextField(
-              maxLines: 1,
-              hintText: 'Password',
-              prefixIcon: Icons.lock_outline,
-            ),
-            const SizedBox(height: 20),
-            const CustomTextField(
-              maxLines: 1,
-              hintText: 'Confirm Password',
-              prefixIcon: Icons.lock_outline,
-            ),
-            const SizedBox(height: 30),
-            SizedBox(
-              height: 48.0,
-              width: double.infinity,
-              child: CustomButton(
-                title: 'Sign Up',
-                onPressed: () {
-                  Navigator.push(
-                      context, MaterialPageRoute(builder: (_) => HomeScreen()));
-                },
-              ),
-            ),
-            const SizedBox(height: 20),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                const Text(
-                  'Already have an account?',
-                  style: TextStyle(color: Colors.black54),
-                ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text('Login',
-                      style: TextStyle(color: Color(0xFF5B86E5))),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  final Color color;
+  final String title;
 
-  Widget _buildMobileLayout(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.all(20.0),
-      decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [Color(0xFF5B86E5), Color(0xFF36D1DC)],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      title,
+      style: TextStyle(
+        fontSize: 28,
+        fontWeight: FontWeight.bold,
+        color: color,
       ),
-      child: Center(
-        child: SingleChildScrollView(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const CircleAvatar(
-                radius: 50,
-                backgroundColor: Colors.white,
-                child: Icon(Icons.person_outline,
-                    size: 50, color: Color(0xFF5B86E5)),
-              ),
-              const SizedBox(height: 20),
-              const Text(
-                'Sign Up',
-                style: TextStyle(
-                  fontSize: 28,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
-              ),
-              const SizedBox(height: 20),
-              const CustomTextField(
-                maxLines: 1,
-                hintText: 'Email',
-                prefixIcon: Icons.mail_outline,
-              ),
-              const SizedBox(height: 20),
-              const CustomTextField(
-                maxLines: 1,
-                hintText: 'Password',
-                prefixIcon: Icons.lock_outline,
-              ),
-              const SizedBox(height: 20),
-              const CustomTextField(
-                maxLines: 1,
-                hintText: 'Confirm Password',
-                prefixIcon: Icons.lock_outline,
-              ),
-              const SizedBox(height: 30),
-              SizedBox(
-                height: 48.0,
-                width: double.infinity,
-                child: CustomButton(
-                  title: 'Sign Up',
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (_) => HomeScreen()));
-                  },
-                ),
-              ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text(
-                    'Already have an account?',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  TextButton(
-                    onPressed: () {
-                      Navigator.pop(context);
-                    },
-                    child: const Text('Login',
-                        style: TextStyle(color: Colors.white)),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ),
-      ),
+      textAlign: TextAlign.center,
     );
   }
 }

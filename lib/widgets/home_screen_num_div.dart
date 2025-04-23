@@ -2,13 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class HomeScreenNumberDiv extends StatelessWidget {
-  final String title;
-  final String subtitle;
   const HomeScreenNumberDiv({
     super.key,
     required this.title,
     required this.subtitle,
   });
+
+  final String subtitle;
+  final String title;
 
   @override
   Widget build(BuildContext context) {

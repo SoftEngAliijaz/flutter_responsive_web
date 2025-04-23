@@ -16,20 +16,20 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late final ScrollController scrollController;
+  late final List<GlobalKey> sectionKeys;
+
+  @override
+  void initState() {
+    super.initState();
+    scrollController = ScrollController();
+    sectionKeys = List.generate(5, (index) => GlobalKey());
+  }
+
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     final isResponsive = ResponsiveBreakpoints.of(context).largerThan(TABLET);
-
-    final ScrollController scrollController = ScrollController();
-
-    final List<GlobalKey> sectionKeys = [
-      GlobalKey(),
-      GlobalKey(),
-      GlobalKey(),
-      GlobalKey(),
-      GlobalKey(),
-    ];
 
     return Scaffold(
       drawer: !isResponsive
@@ -37,9 +37,7 @@ class _HomeScreenState extends State<HomeScreen> {
               scrollController: scrollController, sectionKeys: sectionKeys)
           : null,
       appBar: CustomAppBar(
-        scrollController: scrollController,
-        sectionKeys: sectionKeys,
-      ),
+          scrollController: scrollController, sectionKeys: sectionKeys),
       body: SizedBox(
         height: size.height,
         width: size.width,

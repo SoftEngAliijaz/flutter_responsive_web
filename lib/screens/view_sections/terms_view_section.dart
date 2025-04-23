@@ -3,15 +3,37 @@ import 'package:flutter_responsive_web/widgets/custom_button.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class TermsViewSection extends StatefulWidget {
-  final Key? divKey;
-
   const TermsViewSection({super.key, required this.divKey});
+
+  final Key? divKey;
 
   @override
   State<TermsViewSection> createState() => _TermsViewSectionState();
 }
 
 class _TermsViewSectionState extends State<TermsViewSection> {
+  Widget _buildTermsItem(String title, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.white, size: 24),
+          SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final responsive = ResponsiveBreakpoints.of(context).largerThan(TABLET);
@@ -83,31 +105,7 @@ class _TermsViewSectionState extends State<TermsViewSection> {
           Center(
             child: CustomButton(
               title: 'Read Full Terms',
-              onPressed: () {
-                // Add action here
-              },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildTermsItem(String title, IconData icon) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        children: [
-          Icon(icon, color: Colors.white, size: 24),
-          SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              title,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w500,
-              ),
+              onPressed: () {},
             ),
           ),
         ],

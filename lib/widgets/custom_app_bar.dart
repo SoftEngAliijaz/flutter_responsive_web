@@ -4,9 +4,6 @@ import 'package:flutter_responsive_web/widgets/user_info_card.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
-  @override
-  Size get preferredSize => const Size.fromHeight(60.0);
-
   const CustomAppBar({
     super.key,
     required this.scrollController,
@@ -18,6 +15,9 @@ class CustomAppBar extends StatefulWidget implements PreferredSizeWidget {
 
   @override
   State<CustomAppBar> createState() => _CustomAppBarState();
+
+  @override
+  Size get preferredSize => const Size.fromHeight(60.0);
 }
 
 class _CustomAppBarState extends State<CustomAppBar> {

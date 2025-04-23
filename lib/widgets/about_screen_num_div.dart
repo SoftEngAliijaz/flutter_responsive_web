@@ -2,16 +2,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 
 class AboutScreenNumDiv extends StatelessWidget {
-  final String title;
-  final String subtitle;
-  final String imageUrl;
-
   const AboutScreenNumDiv({
     super.key,
     required this.title,
     required this.subtitle,
     required this.imageUrl,
   });
+
+  final String imageUrl;
+  final String subtitle;
+  final String title;
 
   @override
   Widget build(BuildContext context) {

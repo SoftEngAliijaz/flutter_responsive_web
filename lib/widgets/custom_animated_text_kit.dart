@@ -2,12 +2,12 @@ import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 
 class CustomAnimatedTextKit extends StatelessWidget {
-  final bool isHomePage;
-
   const CustomAnimatedTextKit({
     super.key,
     required this.isHomePage,
   });
+
+  final bool isHomePage;
 
   @override
   Widget build(BuildContext context) {

@@ -3,15 +3,37 @@ import 'package:flutter_responsive_web/widgets/custom_button.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class PrivacyViewSection extends StatefulWidget {
-  final Key? divKey;
-
   const PrivacyViewSection({super.key, required this.divKey});
+
+  final Key? divKey;
 
   @override
   State<PrivacyViewSection> createState() => _PrivacyViewSectionState();
 }
 
 class _PrivacyViewSectionState extends State<PrivacyViewSection> {
+  Widget _buildPrivacyItem(String title, IconData icon) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 8.0),
+      child: Row(
+        children: [
+          Icon(icon, color: Colors.white, size: 24),
+          SizedBox(width: 10),
+          Expanded(
+            child: Text(
+              title,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 16.0,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final responsive = ResponsiveBreakpoints.of(context).largerThan(TABLET);
@@ -84,30 +106,26 @@ class _PrivacyViewSectionState extends State<PrivacyViewSection> {
             child: CustomButton(
               title: 'Learn More',
               onPressed: () {
-                // Add action here
+                // Add action here, e.g., navigating to a detailed privacy policy page
+                showDialog(
+                  context: context,
+                  builder: (context) {
+                    return AlertDialog(
+                      title: Text("Detailed Privacy Policy"),
+                      content: Text(
+                          "Here are more details about our privacy policy..."),
+                      actions: <Widget>[
+                        TextButton(
+                          child: Text("Close"),
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                        ),
+                      ],
+                    );
+                  },
+                );
               },
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildPrivacyItem(String title, IconData icon) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Row(
-        children: [
-          Icon(icon, color: Colors.white, size: 24),
-          SizedBox(width: 10),
-          Expanded(
-            child: Text(
-              title,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 16.0,
-                fontWeight: FontWeight.w500,
-              ),
             ),
           ),
         ],

@@ -5,9 +5,9 @@ import 'package:flutter_responsive_web/widgets/custom_animated_text_kit.dart';
 import 'package:responsive_framework/responsive_framework.dart';
 
 class AboutViewSection extends StatefulWidget {
-  final Key? divKey;
-
   const AboutViewSection({super.key, required this.divKey});
+
+  final Key? divKey;
 
   @override
   State<AboutViewSection> createState() => _AboutViewSectionState();
@@ -67,13 +67,11 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                         ),
                       ),
                     ),
-                    SizedBox(width: responsive ? 20.0 : 10.0),
-                    responsive
-                        ? CustomButton(
-                            title: 'Contact Us',
-                            onPressed: () {},
-                          )
-                        : SizedBox.shrink(),
+                    const SizedBox(width: 20.0),
+                    CustomButton(
+                      title: 'Contact Us',
+                      onPressed: () {},
+                    ),
                   ],
                 )
               : ListTile(
@@ -94,7 +92,7 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                     style: TextStyle(color: Colors.white70),
                   ),
                 ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
 
           // Mission & Vision Section
           Text(
@@ -105,7 +103,7 @@ class _AboutViewSectionState extends State<AboutViewSection> {
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           Text(
             'At TechSolNexa, we are committed to delivering cutting-edge technology solutions '
             'that empower businesses and transform lives. Our vision is to lead the industry '
@@ -115,13 +113,13 @@ class _AboutViewSectionState extends State<AboutViewSection> {
               color: Colors.white70,
             ),
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
 
           // Horizontal Scrollable Section
           SingleChildScrollView(
             scrollDirection: Axis.horizontal,
             child: Row(
-              children: [
+              children: const [
                 HomeScreenNumberDiv(
                   title: 'Years of Innovation',
                   subtitle: '10+',
@@ -141,7 +139,7 @@ class _AboutViewSectionState extends State<AboutViewSection> {
               ],
             ),
           ),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
 
           // Special Section
           Text(
@@ -152,9 +150,9 @@ class _AboutViewSectionState extends State<AboutViewSection> {
               color: Colors.white,
             ),
           ),
-          SizedBox(height: 10.0),
+          const SizedBox(height: 10.0),
           CustomAnimatedTextKit(isHomePage: false),
-          SizedBox(height: 20.0),
+          const SizedBox(height: 20.0),
 
           // Learn More Button
           responsive
@@ -164,7 +162,6 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                 )
               : Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  spacing: 10.0,
                   children: [
                     Expanded(
                       child: CustomButton(
@@ -172,6 +169,7 @@ class _AboutViewSectionState extends State<AboutViewSection> {
                         onPressed: () {},
                       ),
                     ),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: CustomButton(
                         title: 'Contact Us',

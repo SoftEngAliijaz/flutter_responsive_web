@@ -16,6 +16,20 @@ class HomeViewSection extends StatefulWidget {
 }
 
 class _HomeViewSectionState extends State<HomeViewSection> {
+  // Sample data for metrics (could be dynamic based on your app's state)
+  final List<Map<String, String>> metrics = [
+    {'title': 'Applicants', 'subtitle': '1000'},
+    {'title': 'Projects', 'subtitle': '42'},
+    {'title': 'Tasks Completed', 'subtitle': '1250'},
+    {'title': 'Revenue', 'subtitle': '\$75K'},
+    {'title': 'Feedback', 'subtitle': '320'},
+    {'title': 'Bugs Fixed', 'subtitle': '450'},
+    {'title': 'New Signups', 'subtitle': '300'},
+    {'title': 'Pending Requests', 'subtitle': '25'},
+    {'title': 'Messages', 'subtitle': '120'},
+    {'title': 'Notifications', 'subtitle': '15'},
+  ];
+
   @override
   Widget build(BuildContext context) {
     final isDesktop = ResponsiveBreakpoints.of(context).largerThan(TABLET);
@@ -75,29 +89,21 @@ class _HomeViewSectionState extends State<HomeViewSection> {
             ],
             const SizedBox(height: 20.0),
 
-            // Metrics Section
+            // Metrics Section (Dynamic Rendering)
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
-                children: const [
-                  HomeScreenNumberDiv(title: 'Applicants', subtitle: '1000'),
-                  HomeScreenNumberDiv(title: 'Projects', subtitle: '42'),
-                  HomeScreenNumberDiv(
-                      title: 'Tasks Completed', subtitle: '1250'),
-                  HomeScreenNumberDiv(title: 'Revenue', subtitle: '\$75K'),
-                  HomeScreenNumberDiv(title: 'Feedback', subtitle: '320'),
-                  HomeScreenNumberDiv(title: 'Bugs Fixed', subtitle: '450'),
-                  HomeScreenNumberDiv(title: 'New Signups', subtitle: '300'),
-                  HomeScreenNumberDiv(
-                      title: 'Pending Requests', subtitle: '25'),
-                  HomeScreenNumberDiv(title: 'Messages', subtitle: '120'),
-                  HomeScreenNumberDiv(title: 'Notifications', subtitle: '15'),
-                ],
+                children: metrics
+                    .map((metric) => HomeScreenNumberDiv(
+                          title: metric['title']!,
+                          subtitle: metric['subtitle']!,
+                        ))
+                    .toList(),
               ),
             ),
             const SizedBox(height: 20.0),
 
-            // Services Section
+            // Services Section (Dynamic List)
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 15.0),
               child: Column(
